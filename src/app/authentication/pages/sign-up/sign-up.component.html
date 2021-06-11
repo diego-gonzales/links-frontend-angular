@@ -1,0 +1,45 @@
+<div class="row justify-content-center mt-5 animated bounceInRight">
+    <div class="col-md-4">
+
+        <h1 class="border text-center mb-0 pt-3">SignUp</h1>
+
+        <form class="border bg-light p-3"
+              [formGroup]="myForm"
+              (ngSubmit)="signUp()">
+            <div class="mb-3">
+                <input type="text"
+                       class="form-control"
+                       placeholder="Fullname"
+                       formControlName="fullname">
+            </div>
+            <div class="mb-3">
+                <input type="text"
+                       class="form-control"
+                       placeholder="Username"
+                       formControlName="username">
+            </div>
+            <div class="mb-3">
+                <input type="password"
+                       class="form-control"
+                       placeholder="Password"
+                       formControlName="password">
+            </div>
+            <div class="mb-3 d-grid">
+                <button type="submit"
+                        class="btn btn-success"
+                        [disabled]="myForm.invalid">
+                    SignUp
+                </button>
+            </div>
+        </form>
+
+        <div class="border text-center pt-3">
+            <span class="mb-0">Do you already have an account?</span>
+            <a class="nav-link"
+               routerLink="/authentication/signin">
+                SignIn
+            </a>
+        </div>
+
+    </div>
+</div>

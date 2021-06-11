@@ -1,0 +1,35 @@
+<div class="row justify-content-center mt-5 animated rubberBand">
+    <div class="col-md-4">
+        <h3 class="border mb-0 text-center pt-3">
+            {{(!link) ? 'Create Link' : 'Update Link'}}
+        </h3>
+        <form class="border p-3 bg-light"
+              [formGroup]="myForm"
+              (ngSubmit)="submitForm()">
+            <div class="mb-3">
+                <input type="text"
+                       class="form-control"
+                       placeholder="Title"
+                       formControlName="title">
+            </div>
+            <div class="mb-3">
+                <input type="text"
+                       class="form-control"
+                       placeholder="URL"
+                       formControlName="url">
+            </div>
+            <div class="mb-3">
+                <textarea class="form-control"
+                          rows="3"
+                          placeholder="Description"
+                          formControlName="description">
+                </textarea>
+            </div>
+            <div class="mb-3 d-grid">
+                <button class="btn btn-success">
+                    Save
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

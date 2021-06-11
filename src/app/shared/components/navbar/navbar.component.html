@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand fs-2"
+           routerLink="/home"
+           routerLinkActive="active">
+            Favorite Links
+        </a>
+
+        <div class="collapse navbar-collapse d-flex justify-content-md-end" id="navbarNavDropdown">
+            <ul class="navbar-nav fw-bold">
+                <li class="nav-item"
+                    *ngIf="!isAuthenticated">
+                    <a class="nav-link"
+                       routerLink="/authentication/signin"
+                       routerLinkActive="active">
+                        SignIn
+                    </a>
+                </li>
+
+                <li class="nav-item"
+                    *ngIf="!isAuthenticated">
+                    <a class="nav-link"
+                       routerLink="/authentication/signup"
+                       routerLinkActive="active">
+                        SignUp
+                    </a>
+                </li>
+
+                <li class="nav-item"
+                    *ngIf="isAuthenticated">
+                    <a class="nav-link"
+                       routerLink="/favorite-links/profile"
+                       routerLinkActive="active">
+                        Profile
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown"
+                    *ngIf="isAuthenticated">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Links
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item"
+                               routerLink="/favorite-links/list"
+                               routerLinkActive="active">
+                                List Links
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item"
+                               routerLink="/favorite-links/create"
+                               routerLinkActive="active">
+                                Create Link
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item logout"
+                    *ngIf="isAuthenticated">
+                    <a class="nav-link"
+                       (click)="logout()">
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>

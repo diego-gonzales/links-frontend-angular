@@ -1,0 +1,31 @@
+<ng-container *ngIf="!linksOfUser.length; else elseTemplate">
+
+    <app-spinner *ngIf="areThereLinks"></app-spinner>
+
+    <div class="row justify-content-center text-center mt-5"
+         *ngIf="!areThereLinks">
+        <div class="col-md-4 border p-5 bg-light">
+            <p class="fw-bold mb-0">
+                There are not links saved yet
+            </p>
+            <a class="nav-link"
+               routerLink="/favorite-links/create">
+                Create One!
+            </a>
+        </div>
+    </div>
+
+</ng-container>
+
+<ng-template #elseTemplate>
+    <div class="row mt-3 justify-content-evenly">
+        <div class="col-md-4 col-lg-3 border bg-light py-2 m-1 text-center"
+             *ngFor="let link of linksOfUser">
+
+            <app-card-link [linkChild]="link" (deletedLinkcito)="removeDeletedLinkFromArray($event)"></app-card-link>
+
+        </div>
+    </div>
+</ng-template>
+
+

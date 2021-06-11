@@ -1,0 +1,14 @@
+<div class="animated fadeIn">
+    <h3 class="text-primary">{{link.title}}</h3>
+    <p class="fw-bold">{{link.description}}</p>
+    <div class="">
+        <button class="btn btn-info m-1"
+                [routerLink]="['/favorite-links/update', link._id]">
+            Edit
+        </button>
+        <button class="btn btn-danger m-1"
+                (click)="deleteLink()">
+            Delete
+        </button>
+    </div>
+</div>
